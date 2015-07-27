@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  23 JUL 2015 21:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,58 +205,70 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Underfull \hbox (badness 2035) in paragraph at lines 427--428
-[]\OT1/ptm/m/n/10 Droplet, in ac-cor-dance with its text-first phi-los-o-phy,
- []
+<./images/lifecycle.jpg, id=1, 826.08624pt x 342.27875pt>
+File: ./images/lifecycle.jpg Graphic file (type jpg)
 
-<./images/breakpoint_annotations.png, id=1, 548.0475pt x 129.48375pt>
+<use ./images/lifecycle.jpg>
+Package pdftex.def Info: ./images/lifecycle.jpg used on input line 426.
+(pdftex.def)             Requested size: 361.34999pt x 149.72046pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+] <./images/remember-socket.png, id=11, 1052.93375pt x 137.51375pt>
+File: ./images/remember-socket.png Graphic file (type png)
+
+<use ./images/remember-socket.png>
+Package pdftex.def Info: ./images/remember-socket.png used on input line 456.
+(pdftex.def)             Requested size: 361.34999pt x 47.1926pt.
+
+<./images/breakpoint_annotations.png, id=13, 548.0475pt x 129.48375pt>
 File: ./images/breakpoint_annotations.png Graphic file (type png)
 
 <use ./images/breakpoint_annotations.png>
 Package pdftex.def Info: ./images/breakpoint_annotations.png used on input line
- 441.
+ 475.
 (pdftex.def)             Requested size: 180.67499pt x 42.6863pt.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
+<./images/error-outline.png, id=14, 233.87375pt x 40.15pt>
+File: ./images/error-outline.png Graphic file (type png)
 
- <./images/breakpoint_annotations.png>]
-<./images/dropdowns.png, id=13, 139.52126pt x 87.32625pt>
+<use ./images/error-outline.png>
+Package pdftex.def Info: ./images/error-outline.png used on input line 486.
+(pdftex.def)             Requested size: 180.67499pt x 31.0185pt.
+
+Underfull \vbox (badness 1275) has occurred while \output is active []
+
+ [2 <./images/lifecycle.jpg> <./images/breakpoint_annotations.png> <./images/er
+ror-outline.png>] <./images/dropdowns.png, id=20, 139.52126pt x 87.32625pt>
 File: ./images/dropdowns.png Graphic file (type png)
 
 <use ./images/dropdowns.png>
-Package pdftex.def Info: ./images/dropdowns.png used on input line 467.
+Package pdftex.def Info: ./images/dropdowns.png used on input line 501.
 (pdftex.def)             Requested size: 108.405pt x 67.85303pt.
 
-<./images/remember-socket.png, id=14, 1052.93375pt x 137.51375pt>
-File: ./images/remember-socket.png Graphic file (type png)
-
-<use ./images/remember-socket.png>
-Package pdftex.def Info: ./images/remember-socket.png used on input line 487.
-(pdftex.def)             Requested size: 361.34999pt x 47.1926pt.
- [2 <./images/dropdowns.png>]
-<./images/floating-image.png, id=19, 383.4325pt x 190.7125pt>
+<./images/floating-image.png, id=21, 383.4325pt x 190.7125pt>
 File: ./images/floating-image.png Graphic file (type png)
 
 <use ./images/floating-image.png>
-Package pdftex.def Info: ./images/floating-image.png used on input line 509.
+Package pdftex.def Info: ./images/floating-image.png used on input line 518.
 (pdftex.def)             Requested size: 180.67499pt x 89.86476pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--542
+Underfull \hbox (badness 10000) in paragraph at lines 548--549
 []\OT1/ptm/m/n/8 Maloney, J., Resnick, M., Rusk, N., Sil-ver-man, B., and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 541--542
+Underfull \hbox (badness 10000) in paragraph at lines 548--549
 \OT1/ptm/m/n/8 East-mond, E. 2010. The scratch pro-gram-ming lan-guage and
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 541--542
+Underfull \hbox (badness 7740) in paragraph at lines 548--549
 \OT1/ptm/m/n/8 en-vi-ron-ment. ACM Trans. Com-put. Educ. 10, 4, Ar-ti-cle 16
  []
 
 
-Underfull \hbox (badness 5203) in paragraph at lines 541--542
+Underfull \hbox (badness 5203) in paragraph at lines 548--549
 \OT1/ptm/m/n/8 (Novem-ber 2010), 15 pages. DOI = 10.1145/1868358.1868363.
  []
 
@@ -271,24 +283,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./images/remember-socket.png> <./images/floating-image.png>]
-(./fivedroplet.aux) ) 
+[3 <./images/remember-socket.png> <./images/dropdowns.png> <./images/floating-i
+mage.png>] (./fivedroplet.aux) ) 
 Here is how much of TeX's memory you used:
- 2208 strings out of 493109
- 35142 string characters out of 6140856
- 99332 words of memory out of 5000000
- 5670 multiletter control sequences out of 15000+600000
+ 2221 strings out of 493109
+ 35424 string characters out of 6140856
+ 100348 words of memory out of 5000000
+ 5680 multiletter control sequences out of 15000+600000
  33007 words of font info for 62 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 37i,6n,23p,802b,215s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/s
-hare/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/t
-ype1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fivedroplet.pdf (3 pages, 132430 bytes).
+ 37i,6n,23p,904b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.
+enc}</usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-d
+ist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/ti
+mes/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on fivedroplet.pdf (3 pages, 191524 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
+ 43 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
