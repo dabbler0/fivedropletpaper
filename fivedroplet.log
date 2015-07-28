@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 23:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 23:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -218,15 +218,14 @@ File: ./images/lifecycle.png Graphic file (type png)
 <use ./images/lifecycle.png>
 Package pdftex.def Info: ./images/lifecycle.png used on input line 436.
 (pdftex.def)             Requested size: 180.67499pt x 147.35294pt.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 441.
 
-Underfull \hbox (badness 1540) in paragraph at lines 447--448
-[]\OT1/ptm/m/n/10 A study by Wein-trop [[]] found that Scratch's two-
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ (/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./images/lifecycle.png>] <./images/floating-blocks.png, id=11, 507.8975pt x 1
+ <./images/lifecycle.png>] <./images/floating-blocks.png, id=12, 507.8975pt x 1
 64.615pt>
 File: ./images/floating-blocks.png Graphic file (type png)
 
@@ -234,14 +233,14 @@ File: ./images/floating-blocks.png Graphic file (type png)
 Package pdftex.def Info: ./images/floating-blocks.png used on input line 453.
 (pdftex.def)             Requested size: 180.67499pt x 58.55804pt.
 
-<./images/remember-socket.png, id=13, 1052.93375pt x 137.51375pt>
+<./images/remember-socket.png, id=14, 1052.93375pt x 137.51375pt>
 File: ./images/remember-socket.png Graphic file (type png)
 
 <use ./images/remember-socket.png>
 Package pdftex.def Info: ./images/remember-socket.png used on input line 472.
 (pdftex.def)             Requested size: 361.34999pt x 47.1926pt.
 
-<./images/breakpoint_annotations.png, id=14, 548.0475pt x 129.48375pt>
+<./images/breakpoint_annotations.png, id=15, 548.0475pt x 129.48375pt>
 File: ./images/breakpoint_annotations.png Graphic file (type png)
 
 <use ./images/breakpoint_annotations.png>
@@ -249,14 +248,14 @@ Package pdftex.def Info: ./images/breakpoint_annotations.png used on input line
  499.
 (pdftex.def)             Requested size: 180.67499pt x 42.6863pt.
 
-<./images/error-outline.png, id=15, 233.87375pt x 40.15pt>
+<./images/error-outline.png, id=16, 233.87375pt x 40.15pt>
 File: ./images/error-outline.png Graphic file (type png)
 
 <use ./images/error-outline.png>
 Package pdftex.def Info: ./images/error-outline.png used on input line 510.
 (pdftex.def)             Requested size: 180.67499pt x 31.0185pt.
  [2 <./images/floating-blocks.png>]
-<./images/dropdowns.png, id=21, 139.52126pt x 87.32625pt>
+<./images/dropdowns.png, id=22, 139.52126pt x 87.32625pt>
 File: ./images/dropdowns.png Graphic file (type png)
 
 <use ./images/dropdowns.png>
@@ -300,22 +299,23 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2224 strings out of 493109
- 35466 string characters out of 6140856
- 100348 words of memory out of 5000000
- 5683 multiletter control sequences out of 15000+600000
- 34114 words of font info for 63 fonts, out of 8000000 for 9000
+ 2259 strings out of 493109
+ 35949 string characters out of 6140856
+ 101348 words of memory out of 5000000
+ 5713 multiletter control sequences out of 15000+600000
+ 34629 words of font info for 65 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 37i,6n,23p,709b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,6n,23p,754b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/t
-imes/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/
-share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on fivedroplet.pdf (3 pages, 269462 bytes).
+ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/c
+ourier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr
+/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/font
+s/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on fivedroplet.pdf (3 pages, 277605 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
+ 51 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -409,7 +409,7 @@ Droplet is a new programming editor that allows dual-mode editing in blocks and 
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-This paper describes the development of a series of usability improvements for a Droplet block editor. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor, and provides a block interface on top of parsed text code. Initially, Droplet provided the following features:
+This paper describes the development of a series of usability improvements for the Droplet block editor. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor and provides a block interface on top of parsed text code. Initially, Droplet provided the following features:
 
 \begin{itemize}
   \item Blocks based on parsed text, allowing lossless conversion between blocks and text.
@@ -438,12 +438,12 @@ The work was done in the context of integrating Droplet's Javascript mode into C
 \label{lifecycle}
 \end{figure}
 
-A Droplet document is a text file which Droplet annotates with markup for editing purposes. Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream with tokens like "blockStart" or "socketEnd" to indicate where block entities should be rendered. The adapter also attaches metadata to the blocks about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover text code.
+Droplet is a block editor framework that supports multiple languages. Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream to indicate the text ranges of blocks and sockets with tokens such as \texttt{blockStart} or \texttt{blockEnd}. The adapter also annotates information about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover text code.
 
-Droplet's layout algorithm always places text nodes in the same rows as the text appeared in the source. This allows Droplet to achieve a smooth animation between blocks and text.
+Droplet's layout algorithm is designed to allow students to see source code in blocks the same way they would in text code. For example, text is always placed in the same rows in blocks as it appeared in the text source. This allows Droplet to achieve a smooth animation between blocks and text.
 
 \section{Relating Floating Stacks to Text Code}
-
+`
 A study by Weintrop \cite{Weintrop} found that Scratch's two-dimensional editing surface was beneficial to students. It allowed students to try out different ways of performing the same task, and to compose programs in a "non-linear" way. Maloney et al. \cite{Maloney} refer to this as "tinkerability," and say that it supports "a bottom-up approach to writing scripts where small chunks of code are assembled and tested, then combined into larger units." This layout, however, is unfriendly to the linear nature of text code. Droplet needed a way to support assembling and viewing code side-by-side while retaining a one-to-one relationship to text code.
 
 Both Scratch and Blockly support floating blocks. Blockly runs all floating code in top-left to bottom-right order, while each Scratch block stack is associated with an event handler and runs whenever the attached event is fired. Scratch also runs a stack when it is double-clicked.
