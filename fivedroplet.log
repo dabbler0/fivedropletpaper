@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 20:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -244,40 +244,40 @@ File: ./images/breakpoint_annotations.png Graphic file (type png)
 
 <use ./images/breakpoint_annotations.png>
 Package pdftex.def Info: ./images/breakpoint_annotations.png used on input line
- 509.
+ 507.
 (pdftex.def)             Requested size: 180.67499pt x 42.6863pt.
 
 <./images/error-outline.png, id=20, 233.87375pt x 40.15pt>
 File: ./images/error-outline.png Graphic file (type png)
 
 <use ./images/error-outline.png>
-Package pdftex.def Info: ./images/error-outline.png used on input line 520.
+Package pdftex.def Info: ./images/error-outline.png used on input line 518.
 (pdftex.def)             Requested size: 180.67499pt x 31.0185pt.
 
 <./images/dropdowns.png, id=21, 139.52126pt x 87.32625pt>
 File: ./images/dropdowns.png Graphic file (type png)
 
 <use ./images/dropdowns.png>
-Package pdftex.def Info: ./images/dropdowns.png used on input line 535.
+Package pdftex.def Info: ./images/dropdowns.png used on input line 533.
 (pdftex.def)             Requested size: 108.405pt x 67.85303pt.
  [3 <./images/remember-socket.png> <./images/breakpoint_annotations.png> <./ima
 ges/error-outline.png> <./images/dropdowns.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 563--564
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
 []\OT1/ptm/m/n/8 Maloney, J., Resnick, M., Rusk, N., Sil-ver-man, B., and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 563--564
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
 \OT1/ptm/m/n/8 East-mond, E. 2010. The scratch pro-gram-ming lan-guage and
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 563--564
+Underfull \hbox (badness 7740) in paragraph at lines 561--562
 \OT1/ptm/m/n/8 en-vi-ron-ment. ACM Trans. Com-put. Educ. 10, 4, Ar-ti-cle 16
  []
 
 
-Underfull \hbox (badness 5203) in paragraph at lines 563--564
+Underfull \hbox (badness 5203) in paragraph at lines 561--562
 \OT1/ptm/m/n/8 (Novem-ber 2010), 15 pages. DOI = 10.1145/1868358.1868363.
  []
 
@@ -308,7 +308,7 @@ Here is how much of TeX's memory you used:
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/tim
 es/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fivedroplet.pdf (4 pages, 190030 bytes).
+Output written on fivedroplet.pdf (4 pages, 190018 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
