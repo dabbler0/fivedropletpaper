@@ -383,7 +383,7 @@ Email: dbau@exeter.edu}
 
 \begin{abstract}
 %\boldmath
-Droplet is a new programming editor that allows dual-mode editing in blocks and text for any text program. This paper presents observations and improvements to Droplet based on integrating Droplet into Applab, Code.org's JavaScript sandbox learning environment. Droplet's unique interactions with both text and blocks create several unusual problems and opportunities for improvement.
+Droplet is a programming editor that allows dual-mode editing in blocks and text for any text program. This paper presents observations and improvements to Droplet based on integrating Droplet into Applab, Code.org's JavaScript sandbox learning environment. Droplet's unique interactions with both text and blocks create several unusual problems and opportunities for improvement.
 
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -409,7 +409,7 @@ Droplet is a new programming editor that allows dual-mode editing in blocks and 
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-This paper describes the development of a series of usability improvements for the Droplet block editor. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor and provides a block interface on top of parsed text code. Initially, Droplet provided the following features:
+This paper describes a series of usability improvements for the dual-mode block/ext editor, \cite{Droplet}. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor and provides a block interface on top of parsed text code. In previous work, Droplet the following features were implemented in Droplet:
 
 \begin{itemize}
   \item Blocks based on parsed text, allowing lossless conversion between blocks and text.
@@ -417,18 +417,9 @@ This paper describes the development of a series of usability improvements for t
   \item An editor supporting drag-and-drop assembly and editing of the blocks in a program.
 \end{itemize}
 
-Because Droplet is a text editor, many features of other block languages were initially unimplemented. For example, Weintrop \cite{Weintrop} found that a key benefit of block languages is that the two-dimensional surface allows bottom-up assembly of code. However, because of the linear nature of text code, the first version of Droplet did not support it.
+Because Droplet is a text editor, many features of other block languages were initially unimplemented. For example, Weintrop \cite{Weintrop} found that a key benefit of block languages is that the two-dimensional surface allows bottom-up assembly of code. Neilsen's usability heuristics \cite{Neilsen} include user control and freedom through undo commands, as well as the need for guidance when choosing socket values. Finally, since Droplet can edit any text program, with the potential for errors, Dropet needs good support for identifying and recovering from errors.
 
-In this work, the author recognized four major usability principles:
-
-\begin{enumerate}
-  \item Two dimensional code assembly, as proposed by Weintrop \cite{Weintrop}. The challenge is to relate this to the underlying text code.
-  \item User control and freedom through undo. In the context of block editing, two forms of undo are important. Both will be described here.
-  \item Recognition versus recall.  Although the block palette is an aid for remembering commands, an aid is needed for remembering text socket values, in a way that is compatible with text coding.
-  \item Error messages and warnings. Droplet can edit any text program and therefore can create programs with errors. To help users with errors, Droplet can borrow ideas from traditional text programming editors.
-\end{enumerate}
-
-The work was done in the context of integrating Droplet's Javascript mode into Code.org's Applab environment.
+This paper describes solutions for these four usability issues, as worked out in the context of integrating Droplet's JavaScript mode into Code.org's Applab environment, and compares Droplet's approach, necessitated by its core identity as a text editor, to those taken by Scratch and Blockly, which are primarily block editors.
 
 \section{Background}
 \begin{figure}
@@ -438,13 +429,11 @@ The work was done in the context of integrating Droplet's Javascript mode into C
 \label{lifecycle}
 \end{figure}
 
-A key motivation for Droplet is to allow students edit any program with blocks. Droplet is built as a block editor framework that supports multiple languages.
+A key motivation for Droplet is to allow students edit any program with blocks. Droplet is built as a block editor framework that supports multiple languages. Droplet's layout algorithm is designed to allow students to see source code in blocks the same way they would in text code. For example, text is always placed in the same rows in blocks as it appeared in the text source. This allows Droplet to achieve a smooth animation between blocks and text.
 
-Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream to indicate the text ranges of blocks and sockets with tokens such as \texttt{blockStart} or \texttt{blockEnd}. The adapter also annotates information about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover text code.
+Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream to indicate the text ranges of blocks and sockets with tokens such as \texttt{blockStart} or \texttt{blockEnd}. The adapter also annotates information about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover the original text.
 
-Droplet's layout algorithm is designed to allow students to see source code in blocks the same way they would in text code. For example, text is always placed in the same rows in blocks as it appeared in the text source. This allows Droplet to achieve a smooth animation between blocks and text.
-
-\section{Relating Floating Stacks to Text Code}
+\section{Two-dimensional Editing}
 
 Two-dimensional editing surfaces, like Scratch supports, are beneficial to students, according to a study by Weintrop \cite{Weintrop}. They allows students to try out different ways of performing the same task, and to compose programs in a "non-linear" way. Maloney et al. \cite{Maloney} refer to this as "tinkerability," and say that it supports "a bottom-up approach to writing scripts where small chunks of code are assembled and tested, then combined into larger units."
 
@@ -457,15 +446,13 @@ Both Scratch and Blockly support two-dimensional editing, but in different ways.
 \label{floating}
 \end{figure}
 
-Adding two-dimensional editing to Droplet presents an obstacle. Two-dimensional editing helps tinkerability, but is inconsistent with the linear nature of text programs.
-
-Droplet's solution to this dilemma is to allow the construction of "floating" blocks outside of the main text program which are not executed when the program is run. Droplet surrounds floating blocks with the comment symbol and a dotted line to indicate that they will not be run (figure \ref{floating}). Droplet can display a "play" button (as seen in figure \ref{floating}) to allow students to experiement with running individual stacks. However, the stacks are not included in the main program.
+Two-dimensional editing is inconsistent with the linear nature of text programs, and our solution to this dilemma in Droplet is to allow the construction of "floating" blocks to the right of the main program, in the empty space in the editor. These are not executed when the program is run, and are surrounded by a dotted line and the comment symbol (fig. \ref{floating}). Droplet displays a "play" button (fig. \ref{floating}) that allows students to run individual stacks, but the stacks are not included in the main program.
 
 In the future, Droplet may represent these blocks in the code by inserting them as comments. This would allow Droplet show an animation between the floating stacks in text mode and in block mode.
 
 \section{User Control and Freedom}
 
-Especially in untyped languages like JavaScript, it is easy to accidentally drop Droplet blocks into the wrong socket, and so it is important for users to be able to recover from that action. Other major block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks. Scratch supports single-level undo, but neither Scratch and Blockly supports a full undo stack. In contrast, Droplet needs robust support for recovery from mistakes. The author found two strategies for recovery: to arrange the removal of a block from a socket to have a predictable result, and to implement a full undo stack.
+Especially in untyped languages like JavaScript, it is easy to accidentally drop expression blocks into the wrong socket, and so it is important for users to be able to recover from that type of action. Other block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks. Scratch supports single-level undo, and neither Scratch nor Blockly supports a full undo stack. In contrast, the flexibility provided by Droplet needs to be balanced by robust support for recovery from mistakes. There are two interactions where recovery is helpful. One is when a block is removed from a socket, and the other is when the user wants to undo a previous action.
 
 \subsection{Remembering Old Socket Values}
 
@@ -476,12 +463,12 @@ Especially in untyped languages like JavaScript, it is easy to accidentally drop
 \label{remember-socket}
 \end{figure*}
 
-Droplet now remembers the old values of a socket when a block is dropped into it, so that when the block is dragged back out the socket is repopulated with the old value (fig. \ref{remember-socket}). This allows students to correct an accidental drop by simply continuing to move the block to its intended location.
+When a student accidentally drops a block in the wrong location, their natural reaction is to remove the block and continue dragging it to its intended location. To avoid losing information when this happens, Droplet now remembers the old value of a socket when a block is dropped into it. When the block is dragged back out the socket is repopulated with the old value (fig. \ref{remember-socket}).
 
-Because Droplet frequently reparses blocks, attaching the remembered value data directly to the socket is not possible. Instead, Droplet maintains a map from socket locations to remembered values. However, the method by which locations should be serialized is unclear. The structure of a Droplet document can drastically change when Droplet reparses blocks, but the text of the Droplet document remains unchanged. This suggests that a locations should be based on text offsets.
+Implementing this restoration requires a good locations model. Because Droplet frequently reparses blocks, attaching the remembered value data directly to the socket is not possible. Instead, Droplet maintains a map from socket locations to remembered values. However, the method by which locations should be serialized is unclear. The structure of a Droplet document can drastically change when Droplet reparses blocks, but the text of the Droplet document remains unchanged. This suggests that a locations should be based on text offsets.
 
 \subsection{Full Support for Undo and Redo}
-Undo stacks are important to usability, and are included in Neilsen's widely-recognized user interface heuristics \cite{Neilsen}. However, Droplet faced two obstacles in implementing full undo stacks for Droplet. First, because of Droplet's text-based affordances, Droplet had a large number of types of mutations, which were difficult to track and maintain. Second, Droplet did not have a way to unambiguously serialize the locations at which operations were happening.
+The second natural action when a user makes a mistake is to use the undo command. Undo stacks are important to usability, and are included in Neilsen's widely-recognized user interface heuristics \cite{Neilsen}. However, Droplet faced two obstacles in implementing full undo stacks for Droplet. First, because of Droplet's text-based affordances, Droplet had a large number of types of mutations, which were difficult to track and maintain. Second, Droplet did not have a way to unambiguously serialize the locations at which operations were happening.
 
 Droplet mutations can be reduced to combinations of inserts and deletes. Locations, however, present a difficulty. A text-based location, like the remembered socket mechanism might use, is ambiguous when blocks or sockets are adjacent without intervening text. Because the undo stack would track reparses, the structure of the document when the location is retrieved is would be identical to that when it was serialized. This suggest that locations should be based on token offsets.
 
@@ -492,9 +479,9 @@ To permit both socket value restoration and a full undo stack, Droplet uses two 
 
 \subsection{Breakpoints and Line Annotations}
 
-Applab had existing support for live errors and warnings and debugging breakpoints in text mode. Because Droplet blocks have a one-to-one relationship with text code, adding breakpoint and live line-annotation support to Droplet could easily take advantage of Applab's existing debugging infrastructure. Line breakpoints and live annotations are a part of most major professional development environments, including Applab's text mode and Eclipse \cite{Eclipse}. A study by Murphy \cite{Murphy} found that over 70\% of Eclipse users use breakpoints. In 1986 Baecker \cite{Baecker} proposed "Metatext" or annotations as one of the five main principles of program visualization.
+Droplet allows users to work with arbitrary program text as blocks, which means that users can create runtime errors or code that deserves warnings. It is therefore important to support annotations and debugging tools. Line breakpoints and live annotations are a part of most major professional development environments, including Applab's text mode and Eclipse \cite{Eclipse}. A study by Murphy \cite{Murphy} found that over 70\% of Eclipse users use breakpoints. In 1986 Baecker \cite{Baecker} proposed "Metatext" or annotations as one of the five main principles of program visualization.
 
-This is a unique opportunity for Droplet, because it has a one-to-one relationship to text code. Neither Scratch nor Blockly have support for line annotations or line breakpoints.
+Applab had existing support for live errors and warnings and debugging breakpoints in text mode. Because Droplet blocks have a one-to-one relationship with text code, adding breakpoint and live line-annotation support to Droplet could easily take advantage of Applab's existing debugging infrastructure. Neither Scratch nor Blockly have support for line annotations or breakpoints.
 
 \begin{figure}
 \centering
@@ -534,6 +521,7 @@ Droplet added new configuration to allow the embedding application layer to spec
 \section{Acknowledgements}
 
 The author would like to thank Code.org for their support of this work, and Sarah Filman at Code.org and David Bau at Pencilcode for their advice.
+\vfill
 
 \begin{thebibliography}{1}
 
