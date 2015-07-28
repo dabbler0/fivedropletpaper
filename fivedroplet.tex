@@ -452,7 +452,7 @@ In the future, Droplet may represent these blocks in the code by inserting them 
 
 \section{User Control and Freedom}
 
-Especially in untyped languages like JavaScript, it is easy to accidentally drop expression blocks into the wrong socket, and so it is important for users to be able to recover from that type of action. Other block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks. Scratch supports single-level undo, and neither Scratch nor Blockly supports a full undo stack. In contrast, the flexibility provided by Droplet needs to be balanced by robust support for recovery from mistakes. There are two interactions where recovery is helpful. One is when a block is removed from a socket, and the other is when the user wants to undo a previous action.
+Especially in untyped languages like JavaScript, it is easy to accidentally drop expression blocks into the wrong socket, so it is important for users to be able to recover from mistakes. Other block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks. Scratch supports single-level undo, and neither Scratch nor Blockly supports a full undo stack. In contrast, the flexibility provided by Droplet needs to be balanced by robust support for recovery from mistakes. There are two interactions where recovery is helpful. One is when a block is removed from a socket, and the other is when the user wants to undo a previous action.
 
 \subsection{Remembering Old Socket Values}
 

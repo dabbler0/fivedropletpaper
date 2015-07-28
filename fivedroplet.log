@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  28 JUL 2015 01:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  28 JUL 2015 02:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -304,14 +304,14 @@ Here is how much of TeX's memory you used:
  5713 multiletter control sequences out of 15000+600000
  34629 words of font info for 65 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 37i,6n,23p,754b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,6n,23p,739b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/c
 ourier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr
 /share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on fivedroplet.pdf (3 pages, 286740 bytes).
+Output written on fivedroplet.pdf (3 pages, 286708 bytes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream
