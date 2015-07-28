@@ -438,15 +438,17 @@ The work was done in the context of integrating Droplet's Javascript mode into C
 \label{lifecycle}
 \end{figure}
 
-Droplet is a block editor framework that supports multiple languages. Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream to indicate the text ranges of blocks and sockets with tokens such as \texttt{blockStart} or \texttt{blockEnd}. The adapter also annotates information about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover text code.
+A key motivation for Droplet is to allow students edit any program with blocks. Droplet is built as a block editor framework that supports multiple languages.
+
+Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream to indicate the text ranges of blocks and sockets with tokens such as \texttt{blockStart} or \texttt{blockEnd}. The adapter also annotates information about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover text code.
 
 Droplet's layout algorithm is designed to allow students to see source code in blocks the same way they would in text code. For example, text is always placed in the same rows in blocks as it appeared in the text source. This allows Droplet to achieve a smooth animation between blocks and text.
 
 \section{Relating Floating Stacks to Text Code}
-`
-A study by Weintrop \cite{Weintrop} found that Scratch's two-dimensional editing surface was beneficial to students. It allowed students to try out different ways of performing the same task, and to compose programs in a "non-linear" way. Maloney et al. \cite{Maloney} refer to this as "tinkerability," and say that it supports "a bottom-up approach to writing scripts where small chunks of code are assembled and tested, then combined into larger units." This layout, however, is unfriendly to the linear nature of text code. Droplet needed a way to support assembling and viewing code side-by-side while retaining a one-to-one relationship to text code.
 
-Both Scratch and Blockly support floating blocks. Blockly runs all floating code in top-left to bottom-right order, while each Scratch block stack is associated with an event handler and runs whenever the attached event is fired. Scratch also runs a stack when it is double-clicked.
+Two-dimensional editing surfaces, like Scratch supports, are beneficial to students, according to a study by Weintrop \cite{Weintrop}. They allows students to try out different ways of performing the same task, and to compose programs in a "non-linear" way. Maloney et al. \cite{Maloney} refer to this as "tinkerability," and say that it supports "a bottom-up approach to writing scripts where small chunks of code are assembled and tested, then combined into larger units."
+
+Both Scratch and Blockly support two-dimensional editing, but in different ways. Blockly runs all floating code in top-left to bottom-right order, while each Scratch block stack is associated with an event handler and runs whenever the attached event is fired. Scratch also runs a stack when it is double-clicked.
 
 \begin{figure}
 \centering
@@ -455,15 +457,15 @@ Both Scratch and Blockly support floating blocks. Blockly runs all floating code
 \label{floating}
 \end{figure}
 
-Droplet now allows floating blocks to be assembled, but surrounds them with a dotted line and the language's block comment symbol to indicate that they are not going to be run (fig. \ref{floating}). The surrounding dotted line can be grabbed to move the entire stack or replace it into the main document to "uncomment" it. This allows students to assemble blocks in a nonlinear order, and borrows metaphors from text to make it clear that the stacks will not be run. Dropet can also display a "play" button (as seen in figure \ref{floating}) and emit an event to support running individual stacks.
+Adding two-dimensional editing to Droplet presents an obstacle. Two-dimensional editing helps tinkerability, but is inconsistent with the linear nature of text programs.
+
+Droplet's solution to this dilemma is to allow the construction of "floating" blocks outside of the main text program which are not executed when the program is run. Droplet surrounds floating blocks with the comment symbol and a dotted line to indicate that they will not be run (figure \ref{floating}). Droplet can display a "play" button (as seen in figure \ref{floating}) to allow students to experiement with running individual stacks. However, the stacks are not included in the main program.
 
 In the future, Droplet may represent these blocks in the code by inserting them as comments. This would allow Droplet show an animation between the floating stacks in text mode and in block mode.
 
 \section{User Control and Freedom}
 
-Especially in untyped languages like JavaScript, it is easy to accidentally drop Droplet blocks into the wrong socket. However, because Droplet is text-based, sockets often contain important information like long strings. Other major block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks.
-
-Neither Scratch nor Blockly implements a full undo stack. Blockly may not need it because most constants that could be long, sensitive work are not also drop targets for other blocks. In Blockly, typing socket, which is round, is different from a droppable socket, which looks like a puzzle piece, so work is not lost when an accidental drop occurs. In Scratch, sockets that contain strings are also not drop targets. Scratch supports one level of "undelete" but not undo.
+Especially in untyped languages like JavaScript, it is easy to accidentally drop Droplet blocks into the wrong socket, and so it is important for users to be able to recover from that action. Other major block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks. Scratch supports single-level undo, but neither Scratch and Blockly supports a full undo stack. In contrast, Droplet needs robust support for recovery from mistakes. The author found two strategies for recovery: to arrange the removal of a block from a socket to have a predictable result, and to implement a full undo stack.
 
 \subsection{Remembering Old Socket Values}
 
