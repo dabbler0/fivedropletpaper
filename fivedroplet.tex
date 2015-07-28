@@ -409,7 +409,7 @@ Droplet is a new programming editor that allows dual-mode editing in blocks and 
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-  This paper describes the development of a series of usability improvements for a Droplet block editor. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor, and provides a block interface on top of parsed text code. Initially, Droplet provided the following features:
+This paper describes the development of a series of usability improvements for a Droplet block editor. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor, and provides a block interface on top of parsed text code. Initially, Droplet provided the following features:
 
 \begin{itemize}
   \item Blocks based on parsed text allowing lossless conversion between blocks and text.
@@ -417,20 +417,19 @@ Droplet is a new programming editor that allows dual-mode editing in blocks and 
   \item An editor supporting drag-and-drop assembly and editing of the blocks in a linear program.
 \end{itemize}
 
-  Because Droplet is a text editor, many features of other block languages were initially implemented. For example, Weintrop \cite{Weintrop} found that a key benefit of block languages is that the two-dimensional surface allows bottom-up assembly of code. However, because of the linear nature of text code, the first version of Droplet did not support it.
+Because Droplet is a text editor, many features of other block languages were initially implemented. For example, Weintrop \cite{Weintrop} found that a key benefit of block languages is that the two-dimensional surface allows bottom-up assembly of code. However, because of the linear nature of text code, the first version of Droplet did not support it.
 
-  In this work, the goal of the author has been to carefully consider usability principles in the context of block editors, and to find ways to implement important usability improvements in Droplet.
-
-  The principles we recognized and considered were:
+In this work, the author recognized four major usability principles:
 
 \begin{enumerate}
-  \item Two dimensional code assembly, as proposed by Weintrop \cite{Weintrop}. The challenge is to relate this to the underlying linear text code.
-  \item User control and freedom through undo. In the context of block editing, two forms of undo are important.  Both were implemented and are described here.
+  \item Two dimensional code assembly, as proposed by Weintrop \cite{Weintrop}. The challenge is to relate this to the underlying text code.
+  \item User control and freedom through undo. In the context of block editing, two forms of undo are important. Both will be described here.
   \item Recognition versus recall.  Although the block palette is an aid for remembering commands, an aid is needed for remembering text socket values, in a way that is compatible with text coding.
-  \item Error messages and warnings. Droplet can edit any text program and therefore can create programs with errors. To help users with errors, it is helpful to borrow ideas from traditional text programming editors.
+  \item Error messages and warnings. Droplet can edit any text program and therefore can create programs with errors. To help users with errors, Droplet can borrow ideas from traditional text programming editors.
 \end{enumerate}
 
-  In this paper the author describes solutions for these four usability issues. The work was done in the context of integrating Droplet's Javascript mode into Code.org's Applab environment. This paper also compares Droplet's approach to the approaches taken by Scratch and Blockly.
+In this paper the author describes solutions for these four usability issues. The work was done in the context of integrating Droplet's Javascript mode into Code.org's Applab environment. This paper also compares Droplet's approach to the approaches taken by Scratch and Blockly.
+
 \section{Background}
 \begin{figure*}
 \centering
