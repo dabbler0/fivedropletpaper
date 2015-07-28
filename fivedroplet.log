@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 21:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2015.4.21)  27 JUL 2015 21:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,38 +205,38 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 417.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 417.
 
+LaTeX Warning: Citation `Alice' on page 1 undefined on input line 412.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 415.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 415.
 <./images/lifecycle.jpg, id=1, 826.08624pt x 342.27875pt>
 File: ./images/lifecycle.jpg Graphic file (type jpg)
 
 <use ./images/lifecycle.jpg>
-Package pdftex.def Info: ./images/lifecycle.jpg used on input line 441.
+Package pdftex.def Info: ./images/lifecycle.jpg used on input line 437.
 (pdftex.def)             Requested size: 361.34999pt x 149.72046pt.
 
-Underfull \hbox (badness 1540) in paragraph at lines 452--453
+Underfull \hbox (badness 1540) in paragraph at lines 448--449
 []\OT1/ptm/m/n/10 A study by Wein-trop [[]] found that Scratch's two-
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-<./images/floating-blocks.png, id=11, 507.8975pt x 164.615pt>
+<./images/floating-blocks.png, id=2, 507.8975pt x 164.615pt>
 File: ./images/floating-blocks.png Graphic file (type png)
 
 <use ./images/floating-blocks.png>
-Package pdftex.def Info: ./images/floating-blocks.png used on input line 458.
+Package pdftex.def Info: ./images/floating-blocks.png used on input line 454.
 (pdftex.def)             Requested size: 180.67499pt x 58.55804pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-<./images/remember-socket.png, id=13, 1052.93375pt x 137.51375pt>
+
+] <./images/remember-socket.png, id=13, 1052.93375pt x 137.51375pt>
 File: ./images/remember-socket.png Graphic file (type png)
 
 <use ./images/remember-socket.png>
-Package pdftex.def Info: ./images/remember-socket.png used on input line 488.
+Package pdftex.def Info: ./images/remember-socket.png used on input line 484.
 (pdftex.def)             Requested size: 361.34999pt x 47.1926pt.
  [2 <./images/lifecycle.jpg> <./images/floating-blocks.png>]
 <./images/breakpoint_annotations.png, id=19, 548.0475pt x 129.48375pt>
@@ -244,43 +244,44 @@ File: ./images/breakpoint_annotations.png Graphic file (type png)
 
 <use ./images/breakpoint_annotations.png>
 Package pdftex.def Info: ./images/breakpoint_annotations.png used on input line
- 507.
+ 503.
 (pdftex.def)             Requested size: 180.67499pt x 42.6863pt.
 
 <./images/error-outline.png, id=20, 233.87375pt x 40.15pt>
 File: ./images/error-outline.png Graphic file (type png)
 
 <use ./images/error-outline.png>
-Package pdftex.def Info: ./images/error-outline.png used on input line 518.
+Package pdftex.def Info: ./images/error-outline.png used on input line 514.
 (pdftex.def)             Requested size: 180.67499pt x 31.0185pt.
 
 <./images/dropdowns.png, id=21, 139.52126pt x 87.32625pt>
 File: ./images/dropdowns.png Graphic file (type png)
 
 <use ./images/dropdowns.png>
-Package pdftex.def Info: ./images/dropdowns.png used on input line 533.
+Package pdftex.def Info: ./images/dropdowns.png used on input line 529.
 (pdftex.def)             Requested size: 108.405pt x 67.85303pt.
- [3 <./images/remember-socket.png> <./images/breakpoint_annotations.png> <./ima
-ges/error-outline.png> <./images/dropdowns.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
 []\OT1/ptm/m/n/8 Maloney, J., Resnick, M., Rusk, N., Sil-ver-man, B., and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
 \OT1/ptm/m/n/8 East-mond, E. 2010. The scratch pro-gram-ming lan-guage and
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 561--562
+Underfull \hbox (badness 7740) in paragraph at lines 557--558
 \OT1/ptm/m/n/8 en-vi-ron-ment. ACM Trans. Com-put. Educ. 10, 4, Ar-ti-cle 16
  []
 
 
-Underfull \hbox (badness 5203) in paragraph at lines 561--562
+Underfull \hbox (badness 5203) in paragraph at lines 557--558
 \OT1/ptm/m/n/8 (Novem-ber 2010), 15 pages. DOI = 10.1145/1868358.1868363.
  []
 
+[3 <./images/remember-socket.png> <./images/breakpoint_annotations.png> <./imag
+es/error-outline.png> <./images/dropdowns.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -294,21 +295,25 @@ Before submitting the final camera ready copy, remember to:
 
 [4
 
-] (./fivedroplet.aux) ) 
+] (./fivedroplet.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2223 strings out of 493109
- 35457 string characters out of 6140856
+ 2225 strings out of 493109
+ 35470 string characters out of 6140856
  100348 words of memory out of 5000000
- 5682 multiletter control sequences out of 15000+600000
- 33007 words of font info for 62 fonts, out of 8000000 for 9000
+ 5683 multiletter control sequences out of 15000+600000
+ 34114 words of font info for 63 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  37i,6n,23p,904b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
-ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/tim
-es/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
-are/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fivedroplet.pdf (4 pages, 189261 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/t
+imes/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/
+share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on fivedroplet.pdf (4 pages, 189377 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
