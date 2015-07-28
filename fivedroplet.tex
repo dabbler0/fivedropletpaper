@@ -412,12 +412,12 @@ Droplet is a new programming editor that allows dual-mode editing in blocks and 
 This paper describes the development of a series of usability improvements for a Droplet block editor. Droplet provides a visual editing mode similar to Scratch \cite{Scratch}, Alice \cite{Alice}, and Blockly \cite{Blockly}. However, Droplet is unique because it works as a text editor, and provides a block interface on top of parsed text code. Initially, Droplet provided the following features:
 
 \begin{itemize}
-  \item Blocks based on parsed text allowing lossless conversion between blocks and text.
+  \item Blocks based on parsed text, allowing lossless conversion between blocks and text.
   \item A palette of short prewritten code fragments, represented as blocks.
-  \item An editor supporting drag-and-drop assembly and editing of the blocks in a linear program.
+  \item An editor supporting drag-and-drop assembly and editing of the blocks in a program.
 \end{itemize}
 
-Because Droplet is a text editor, many features of other block languages were initially implemented. For example, Weintrop \cite{Weintrop} found that a key benefit of block languages is that the two-dimensional surface allows bottom-up assembly of code. However, because of the linear nature of text code, the first version of Droplet did not support it.
+Because Droplet is a text editor, many features of other block languages were initially unimplemented. For example, Weintrop \cite{Weintrop} found that a key benefit of block languages is that the two-dimensional surface allows bottom-up assembly of code. However, because of the linear nature of text code, the first version of Droplet did not support it.
 
 In this work, the author recognized four major usability principles:
 
@@ -431,14 +431,14 @@ In this work, the author recognized four major usability principles:
 The work was done in the context of integrating Droplet's Javascript mode into Code.org's Applab environment.
 
 \section{Background}
-\begin{figure*}
+\begin{figure}
 \centering
-\includegraphics[width=5in]{lifecycle.jpg}
+\includegraphics[width=2.5in]{lifecycle.png}
 \caption{Droplet's Lifecycle for a JavaScript Program}
 \label{lifecycle}
-\end{figure*}
+\end{figure}
 
-Droplet is an editor that display text code as visual blocks, and can toggle between the two. A Droplet document is simply a text file which Droplet annotates with markup for editing purposes. Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript is invoked and runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream with tokens like "blockStart" or "socketEnd" to indicate where block entities should be rendered. The adapter also attaches metadata to the blocks about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is simply discarded and, if no edits have occurred, the original text stream is guaranteed to be generated again.
+A Droplet document is a text file which Droplet annotates with markup for editing purposes. Figure \ref{lifecycle} shows the lifecycle of a Droplet program in JavaScript. When the user opens a file, the language adapter for JavaScript runs the code through a standard JavaScript parser. It uses the resulting syntax tree to annotate the text stream with tokens like "blockStart" or "socketEnd" to indicate where block entities should be rendered. The adapter also attaches metadata to the blocks about color, shape, and droppability rules. Droplet then lays out and renders the resulting stream. When the user saves or runs the file, the markup is discarded to recover text code.
 
 Droplet's layout algorithm always places text nodes in the same rows as the text appeared in the source. This allows Droplet to achieve a smooth animation between blocks and text.
 
@@ -463,18 +463,7 @@ In the future, Droplet may represent these blocks in the code by inserting them 
 
 Especially in untyped languages like JavaScript, it is easy to accidentally drop Droplet blocks into the wrong socket. However, because Droplet is text-based, sockets often contain important information like long strings. Other major block languages do not have this problem because sockets with information like variable names or strings are not usually drop targets for other blocks.
 
-Blockly does not have this problem, because most constants that could be long, sensitive work are not also drop targets for other blocks. In Blockly, typing socket, which is round, is different from a droppable socket, which looks like a puzzle piece, so work is not lost when an accidental drop occurs.
-
-Scratch has this problem, but it is less pronounced, since sockets that contain strings are not drop targets. Scratch repopulates sockets with hand-chosen default values when blocks are dragged out of them.
-
-Neither Scratch nor Blockly implements a full undo stack. Blockly has progress on an undo stack based on the serialized operations it will make for real-time collaboration. Scratch does not have an undo stack, but has support for "undeleting" the last block that was deleted.
-
-\subsection{Full Support for Undo and Redo}
-Undo stacks are important to usability, and are included in Neilsen's widely-recognized user interface heuristics \cite{Neilsen}. Undo was difficult to implement in Droplet because of the way Droplet reparses and replaces blocks whenever they are changed, invalidating pointers to blocks. Droplet needed a clean model for serializing and maintaining the locations of blocks in the document.
-
-Droplet now supports two different locations models: a token-based locations model identifying blocks by their token offset from the beginning of the document, and a text-based locations model identifying blocks by their character offset, type, and string length. The text-based locations model is more human-readable but is slightly ambiguous. Editing entities like the cursor, focused socket for text input, and selection are stored as token-based locations.
-
-Droplet now also confines mutations to three fundamental operations: insert, delete, and replace (used for reparsing). When an insert or delete occurs, Droplet preserves a location by retrieving a pointer to the linked-list token at the location, doing the mutation, and retrieving the new location of the block. When a replace occurs, locations inside the replaced area are converted to text locations, then converted back afterward. Each of mutation operation now generates an undo operation described by token-based locations.
+Neither Scratch nor Blockly implements a full undo stack. Blockly may not need it because most constants that could be long, sensitive work are not also drop targets for other blocks. In Blockly, typing socket, which is round, is different from a droppable socket, which looks like a puzzle piece, so work is not lost when an accidental drop occurs. In Scratch, sockets that contain strings are also not drop targets. Scratch supports one level of "undelete" but not undo.
 
 \subsection{Remembering Old Socket Values}
 
@@ -485,9 +474,17 @@ Droplet now also confines mutations to three fundamental operations: insert, del
 \label{remember-socket}
 \end{figure*}
 
-Droplet now also remembers the old values of a socket when a block is dropped into it, so that when the block is dragged back out the socket is repopulated with the old value (fig. \ref{remember-socket}). This provides an alternate way for students to correct an accidental drop by moving the block to its intended location.
+Droplet now remembers the old values of a socket when a block is dropped into it, so that when the block is dragged back out the socket is repopulated with the old value (fig. \ref{remember-socket}). This allows students to correct an accidental drop by simply continuing to move the block to its intended location.
 
-Because Droplet frequently reparses blocks, attaching the remembered value data directly to the socket is not possible. Instead, Droplet maintains a map from socket locations to remembered values. By preserving the location of the socket (using the same infrastructure as the new undo stack), the Droplet editor can track the socket and preserve the remembered value this until the block is deleted. The map from sockets to remembered values is also tracked in the undo stack, so the remembered values are preserved across undo and redo.
+Because Droplet frequently reparses blocks, attaching the remembered value data directly to the socket is not possible. Instead, Droplet maintains a map from socket locations to remembered values. However, the method by which locations should be serialized is unclear. The structure of a Droplet document can drastically change when Droplet reparses blocks, but the text of the Droplet document remains unchanged. This suggests that a locations should be based on text offsets.
+
+\subsection{Full Support for Undo and Redo}
+Undo stacks are important to usability, and are included in Neilsen's widely-recognized user interface heuristics \cite{Neilsen}. However, Droplet faced two obstacles in implementing full undo stacks for Droplet. First, because of Droplet's text-based affordances, Droplet had a large number of types of mutations, which were difficult to track and maintain. Second, Droplet did not have a way to unambiguously serialize the locations at which operations were happening.
+
+Droplet mutations can be reduced to combinations of inserts and deletes. Locations, however, present a difficulty. A text-based location, like the remembered socket mechanism might use, is ambiguous when blocks or sockets are adjacent without intervening text. Because the undo stack would track reparses, the structure of the document when the location is retrieved is would be identical to that when it was serialized. This suggest that locations should be based on token offsets.
+
+\subsection{Resolving the Location Dilemma}
+To permit both socket value restoration and a full undo stack, Droplet uses two location models and converts between them as necessary. To assist this, Droplet has a third type of fundamental mutation: replace. A replace operation is used only for reparsing, and requires that the text content of the replaced section does not change. Droplet stores all locations as token-based offsets. When a replace operation occurs, Droplet converts any locations inside the replaced section that need to be persisted to text-based locations and converts back afterward. This allows Droplet to preserve socket locations across most reparses, but for the primary location model to be unambiguous.
 
 \section{Error Prevention and Recovery}
 
@@ -531,6 +528,10 @@ Both Scratch and Blockly implement dropdowns for their text inputs. Both have sp
 \end{figure}
 
 Droplet added new configuration to allow the embedding application layer to specify dropdowns. Embedders may specify dropdowns by function name and argument position in JavaScript and CoffeeScript mode -- for instance, in Figure \ref{dropdowns}, the "fd" function has a dropdown specified at argument 0. Dropdowns can be dynamically generated -- in Figure \ref{dropdowns}, a list of element ids is generated using information taken from Applab's WYSIWYG HTML Design Mode.
+
+\section{Acknowledgements}
+
+The author would like to thank Code.org for their support of this work, and Sarah Filman at Code.org and David Bau at Pencilcode for their advice.
 
 \begin{thebibliography}{1}
 
